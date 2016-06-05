@@ -1,0 +1,15 @@
+{
+  "name": "changesjs",
+  "version": "1.0",
+  "main": [
+    "lib/changes.js"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components"
+  ],
+  "dependencies": {
+    "lodash": "latest"
+  }
+}
