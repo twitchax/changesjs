@@ -10,6 +10,5 @@
     "bower_components"
   ],
   "dependencies": {
-    "lodash": "latest"
   }
 }
