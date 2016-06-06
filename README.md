@@ -27,9 +27,9 @@ A basic example follows:
 ```javascript
 var chord = N['C'].seven().sharpNine();
 console.log(`${chord.name}`);
-console.log(`${chord.descriptions}`);
-console.log(`${chord.scale().map(n => n.name)}`);
-console.log(`${chord.chord().map(n => n.name)}`);
+console.log(`${chord.descriptions()}`);
+console.log(`${chord.scale().map(n => n.name())}`);
+console.log(`${chord.chord().map(n => n.name())}`);
 chord.playChord();
 ```
 yields
