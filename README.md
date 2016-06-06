@@ -6,7 +6,7 @@ A DSL for exploring jazz chord changes.
 
 **ChangesJs** is a DSL built for describing jazz chord changes.  It is meant to assist jazz musicians building music apps or education tools.  Upon building out a chord, the user can explore the various ways the chord can be described, the underlying scale of the chord, the chord tones of the chord and the sound of the chord.
 
-A key feature of **ChangesJs** is the proper selection of enharmonics.  For example, take the split nine in a *C7(#9)* chord (A *Db* and a *D#*): **ChangesJs** will correctly display the split nine as a *D** rather than a *C#* or *Eb*.  In another example, take the true seven in a *Co* chord (the seven is a *B*, and the true definition is a double flat seven): **ChangesJs** will automatically choose *Bbb* as the enharmonic for the seven in a *C-diminished* chord.  However, **ChangesJs** also provides a "legible" option which will resolve tones to their most "legible" form (*Bbb* to *A* in the previous example).
+A key feature of **ChangesJs** is the proper selection of enharmonics.  For example, take the split nine in a *C7(#9)* chord (A *Db* and a *D#*): **ChangesJs** will correctly display the split nine as a *D** rather than a *C#* or *Eb*.  In another example, take the true seven in a *C-diminished* chord (the seven is a *B*, and the true definition is a double flat seven): **ChangesJs** will automatically choose *Bbb* as the enharmonic for the seven in a *C-diminished* chord.  However, **ChangesJs** also provides a "legible" option which will resolve tones to their most "legible" form (*Bbb* to *A* in the previous example).
 
 The syntax is pretty self-explanatory since it is meant to be read and written the way a musician would read and write a chord.
 
@@ -26,7 +26,7 @@ Chrome 51+.
 A basic example follows:
 ```javascript
 var chord = N['C'].seven().sharpNine();
-console.log(`${chord.name}`);
+console.log(`${chord.name()}`);
 console.log(`${chord.descriptions()}`);
 console.log(`${chord.scale().map(n => n.name())}`);
 console.log(`${chord.chord().map(n => n.name())}`);
@@ -35,7 +35,7 @@ chord.playChord();
 yields
 ```
 C7(#9)
-diminished whole tone,seventh mode of a melodic minor scale,melodic minor up a half step
+diminished whole tone, seventh mode of a melodic minor scale, melodic minor up a half step
 C,Db,D#,E,F#,G#,Bb
 C,E,G,Bb,D#
 ```
