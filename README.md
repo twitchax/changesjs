@@ -14,6 +14,8 @@ The syntax is pretty self-explanatory since it is meant to be read and written t
 
 The "build" of **ChangesJs** is at ["lib/changes.js"](lib/changes.js) ([raw](https://cdn.rawgit.com/twitchax/changesjs/master/lib/changes.js)).
 
+Live demo ["here"](http://twitchax.github.io).
+
 ### Compatibility
 
 Chrome 51+.
@@ -25,7 +27,7 @@ Chrome 51+.
 ### Examples
 A basic example follows:
 ```javascript
-var chord = N['C'].seven().sharpNine();
+var chord = C['C'].seven().sharpNine();
 console.log(`${chord.name()}`);
 console.log(`${chord.descriptions()}`);
 console.log(`${chord.scale().map(n => n.name())}`);
@@ -42,7 +44,7 @@ C,E,G,Bb,D#
 
 **ChangesJs** also has a "Player" that can play chords or notes in order:
 ```javascript
-var root = N['C'];
+var root = C['C'];
 P
     .add(root.major())
     .add(root.majorSeven())

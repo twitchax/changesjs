@@ -5,12 +5,62 @@
   <meta charset="utf-8" />
   <title>ChangesJs</title>
   <script src="../bower_components/vexflow/releases/vexflow-debug.js"></script>
+  <script src="rx.js"></script>
   <script src="../lib/changes.js"></script>
 </head>
 
 <body>
   <h1>ChangesJs</h1>
-  <canvas id="staff" width=1000 height=100"></canvas>
+
+  <select id="tone" name="select">
+    <option value="C" selected>C</option>
+    <option value="D">D</option>
+    <option value="E">E</option>
+    <option value="F">F</option>
+    <option value="G">G</option>
+    <option value="A">A</option>
+    <option value="B">B</option>
+  </select>
+
+  <select id="accidental" name="select">
+    <option value="" selected>&nbsp;</option>
+    <option value="#">#</option>
+    <option value="b">b</option>
+  </select>
+
+  <select id="third" name="select">
+    <option value="M" selected>&nbsp;</option>
+    <option value="-">-</option>
+    <option value="dim">dim</option>
+  </select>
+
+  <select id="fifth" name="select">
+    <option value="" selected>&nbsp;</option>
+    <option value="+">+</option>
+    <option value="b5">b5</option>
+  </select>
+
+  <select id="seventh" name="select">
+    <option value="" selected>&nbsp;</option>
+    <option value="maj7">maj7</option>
+    <option value="7">7</option>
+  </select>
+
+  <select id="ninth" name="select">
+    <option value="" selected>&nbsp;</option>
+    <option value="#9">#9</option>
+    <option value="b9">b9</option>
+  </select>
+
+  <select id="eleventh" name="select">
+    <option value="" selected>&nbsp;</option>
+    <option value="#11">#11</option>
+  </select>
+
+  <br />
+
+  <p id="info"></p>
+  <canvas id="staff" width=1000 height=200"></canvas>
 </body>
 
 <script src="index.js"></script>
