@@ -1,6 +1,11 @@
 {
   "name": "changesjs",
   "version": "1.0",
+  "homepage": "https://github.com/twitchax/changesjs",
+  "license": "MIT",
+  "authors": [
+    "Aaron Roney"
+  ],
   "main": [
     "lib/changes.js"
   ],
