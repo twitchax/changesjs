@@ -14,7 +14,7 @@ The syntax is pretty self-explanatory since it is meant to be read and written t
 
 The "build" of **ChangesJs** is at ["lib/changes.js"](lib/changes.js) ([raw](https://cdn.rawgit.com/twitchax/changesjs/master/lib/changes.js)).
 
-Live demo ["here"](http://twitchax.github.io).
+Live demo [here](http://twitchax.github.io).
 
 ### Compatibility
 
