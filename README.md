@@ -34,13 +34,13 @@ console.log(`${chord.toString()}`);
 ```
 yields
 ```
-C7(#9):
+C7(♯9):
     Description: diminished whole tone, seventh mode of a melodic minor scale, melodic minor up a half step
-    Chord Structure: 1, 3, 5, b7, #9
-    Scale: C, Db, D#, E, F#, G#, Bb
-    Chord: C, E, G, Bb, D#
-    Legible Scale: C, Db, Eb, E, F#, G#, Bb
-    Legible Chord: C, E, G, Bb, Eb
+    Chord Structure: 1, 3, 5, ♭7, ♯9
+    Scale: C, D♭, D♯, E, F♯, G♯, B♭
+    Chord: C, E, G, B♭, D♯
+    Legible Scale: C, D♭, E♭, E, F♯, G♯, B♭
+    Legible Chord: C, E, G, B♭, E♭
 ```
 
 In addition to the fluent API, there is a rudimentary chord symbol parser.  For example:
@@ -50,13 +50,13 @@ console.log(`${chord.toString()}`);
 ```
 yields
 ```
-A7(b9):
+A7(♭9):
     Description: fully diminished (half step first), half/whole/half
-    Chord Structure: 1, 3, 5, b7, b9
-    Scale: A, Bb, C, C#, D#, E, F#, G
-    Chord: A, C#, E, G, Bb
-    Legible Scale: A, Bb, C, Db, Eb, E, F#, G
-    Legible Chord: A, Db, E, G, Bb
+    Chord Structure: 1, 3, 5, ♭7, ♭9
+    Scale: A, B♭, C, C♯, D♯, E, F♯, G
+    Chord: A, C♯, E, G, B♭
+    Legible Scale: A, B♭, C, D♭, E♭, E, F♯, G
+    Legible Chord: A, D♭, E, G, B♭
 ```
 
 **ChangesJs** also has a "Player" that can play chords or notes in order:
