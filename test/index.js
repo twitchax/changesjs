@@ -11,6 +11,8 @@
     var _stave;
     var _width = 800;
 
+    var _selectedChord;
+
     function _reset() {
         var canvas = document.querySelector('#staff');
         var renderer = new Vex.Flow.Renderer(canvas, Vex.Flow.Renderer.Backends.CANVAS);
@@ -31,13 +33,13 @@
 
         // Create the scale.
         var scaleNotes = [];
-        for(var n of scale) {
-            var staveNote = new Vex.Flow.StaveNote({ keys: [`${n.name().toLowerCase()}/${n.designation()}`], duration: 'q' });
+        for(var note of scale) {
+            var staveNote = new Vex.Flow.StaveNote({ keys: [`${note.name().toLowerCase()}/${note.designation()}`], duration: 'q' });
 
-            if(n.name().length > 1)
-                staveNote.addAccidental(0, new Vex.Flow.Accidental(n.name().substring(1)));
+            if(note.name().length > 1)
+                staveNote.addAccidental(0, new Vex.Flow.Accidental(note.name().substring(1)));
 
-            if(chord.includes(n)) {
+            if(chord.find(n => n.toneEquals(note))) {
                 staveNote.setStyle({ fillStyle: '#0000ff', strokeStyle: '#0000ff' });
             }
 
@@ -58,15 +60,31 @@
 
     document.addEventListener("DOMContentLoaded", function(event) {
         Stream.dom('chord', 'input').subscribe(d => {
-            var chord = C[d.srcElement.value];
+            _selectedChord = C[d.srcElement.value];
+
+            if(!_selectedChord) {
+                document.querySelector('#info').innerHTML = '';
+                _reset();
+                return;
+            }
+
+            if(_selectedChord.isNote())
+                _selectedChord = _selectedChord.major();
             
-            if(chord.isNote())
-                chord = chord.major();
-            
-            document.querySelector('#info').innerHTML = chord.toString().replaceAll(' ', '&nbsp;').replaceAll('\n', '<br />');
+            document.querySelector('#info').innerHTML = _selectedChord.toString().replaceAll(' ', '&nbsp;').replaceAll('\n', '<br />');
 
             _reset();
-            _addScale(chord);
+            _addScale(_selectedChord);
+        });
+
+        Stream.dom('play', 'click').subscribe(d => {
+            if(_selectedChord) {
+                P 
+                    .add(_selectedChord)
+                    .add(_selectedChord.chord())
+                    .add(_selectedChord)
+                    .play(500);
+            }
         });
 
         _reset();

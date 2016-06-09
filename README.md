@@ -28,18 +28,33 @@ Chrome 51+.
 A basic example follows:
 ```javascript
 var chord = C['C'].seven().sharpNine();
-console.log(`${chord.name()}`);
-console.log(`${chord.descriptions()}`);
-console.log(`${chord.scale().map(n => n.name())}`);
-console.log(`${chord.chord().map(n => n.name())}`);
-chord.playChord();
+console.log(`${chord.toString()}`);
 ```
 yields
 ```
-C7(#9)
-diminished whole tone, seventh mode of a melodic minor scale, melodic minor up a half step
-C,Db,D#,E,F#,G#,Bb
-C,E,G,Bb,D#
+C7(#9):
+    Description: diminished whole tone, seventh mode of a melodic minor scale, melodic minor up a half step
+    Chord Structure: 1, 3, 5, b7, #9
+    Scale: C, Db, D#, E, F#, G#, Bb
+    Chord: C, E, G, Bb, D#
+    Legible Scale: C, Db, Eb, E, F#, G#, Bb
+    Legible Chord: C, E, G, Bb, Eb
+```
+
+In addition to the fluent API, there is a rudimentary chord symbol parser.  For example:
+```javascript
+var chord = C['A7(b9)'];
+console.log(`${chord.toString()}`);
+```
+yields
+```
+A7(b9):
+    Description: fully diminished (half step first), half/whole/half
+    Chord Structure: 1, 3, 5, b7, b9
+    Scale: A, Bb, C, C#, D#, E, F#, G
+    Chord: A, C#, E, G, Bb
+    Legible Scale: A, Bb, C, Db, Eb, E, F#, G
+    Legible Chord: A, Db, E, G, Bb
 ```
 
 **ChangesJs** also has a "Player" that can play chords or notes in order:
