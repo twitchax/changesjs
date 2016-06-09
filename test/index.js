@@ -34,10 +34,11 @@
         // Create the scale.
         var scaleNotes = [];
         for(var note of scale) {
-            var staveNote = new Vex.Flow.StaveNote({ keys: [`${note.name().toLowerCase()}/${note.designation()}`], duration: 'q' });
+            var noteName = note.simpleName();
+            var staveNote = new Vex.Flow.StaveNote({ keys: [`${noteName.toLowerCase()}/${note.designation()}`], duration: 'q' });
 
             if(note.name().length > 1)
-                staveNote.addAccidental(0, new Vex.Flow.Accidental(note.name().substring(1)));
+                staveNote.addAccidental(0, new Vex.Flow.Accidental(noteName.substring(1)));
 
             if(chord.find(n => n.toneEquals(note))) {
                 staveNote.setStyle({ fillStyle: '#0000ff', strokeStyle: '#0000ff' });
