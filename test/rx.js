@@ -1,4 +1,5 @@
-; 'use strict';
+'use strict';
+
 (function () {
     class Stream {
         constructor() {
@@ -53,7 +54,7 @@
         // Public methods.
 
         subscribe(callback) {
-            this._callbacks.push(callback)
+            this._callbacks.push(callback);
         }
 
         first() {
