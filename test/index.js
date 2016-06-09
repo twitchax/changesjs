@@ -56,40 +56,25 @@
         scaleVoice.draw(_ctx, _stave);
     }
 
-    document.addEventListener("DOMContentLoaded", function(event) { 
-
-        var mapper = (o) => {
-            if(typeof o === 'string')
-                return o;
-            return o.srcElement.value;
-        }
-
-        var $tone = Stream.dom('tone', 'change').map(mapper);
-        var $accidental = Stream.dom('accidental', 'change').map(mapper);
-        var $third = Stream.dom('third', 'change').map(mapper);
-        var $fifth = Stream.dom('fifth', 'change').map(mapper);
-        var $seventh = Stream.dom('seventh', 'change').map(mapper);
-        var $ninth = Stream.dom('ninth', 'change').map(mapper);
-        var $eleventh = Stream.dom('eleventh', 'change').map(mapper);
-
-        Stream.zip([$tone, $accidental, $third, $fifth, $seventh, $ninth, $eleventh], (tone, accidental, third, fifth, seventh, ninth, eleventh) => {
-            var chord = C[`${tone}${accidental}${third}${fifth}${seventh}${ninth}${eleventh}`];
+    document.addEventListener("DOMContentLoaded", function(event) {
+        Stream.dom('chord', 'input').subscribe(d => {
+            var chord = C[d.srcElement.value];
+            
+            if(chord.isNote())
+                chord = chord.major();
+            
             document.querySelector('#info').innerHTML = chord.toString().replaceAll(' ', '&nbsp;').replaceAll('\n', '<br />');
 
             _reset();
             _addScale(chord);
         });
 
-        $tone._push('C');
-        $accidental._push('');
-        $third._push('M');
-        $fifth._push('');
-        $seventh._push('');
-        $ninth._push('');
-        $eleventh._push('');
+        _reset();
     });
 
 })();
+
+// Other simple examples...
 
 // var chord = C['C'].seven().flatNine();
 // console.log(`${chord.name()}`);
