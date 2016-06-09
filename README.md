@@ -16,6 +16,8 @@ The "build" of **ChangesJs** is at ["lib/changes.js"](lib/changes.js) ([raw](htt
 
 Live demo [here](http://twitchax.github.io/bower_components/changesjs/test/index.html).
 
+Screencast demo [here](https://www.youtube.com/watch?v=C1UCETOFThw).
+
 ### Compatibility
 
 Chrome 51+.
